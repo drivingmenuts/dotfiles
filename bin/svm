@@ -7,12 +7,16 @@ if [[ -x /usr/bin/vboxmanage ]]; then
 			if [[ "$VM" == 'exit']]; then
 				exit
 			else
-				svm $VM 
+				_svm $VM 
 			fi
 		done
 	else
-		vboxmanage startvm $1 --type headless
+		_svm $1
 	fi
 else
 	echo vboxmanage not installed.
 fi
+
+_svm() {
+	vboxmanage startvm $1 --type headless
+}
