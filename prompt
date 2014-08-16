@@ -1,5 +1,11 @@
 #!/bin/bash
 # prompt control
+# info: http://www.thegeekstuff.com/2008/09/bash-shell-take-control-of-ps1-ps2-ps3-ps4-and-prompt_command/
+# PS1 = the standard prompt
+# PS2 = the continuation prompt
+# PS3 = the select prompt (select x in set)
+# PS4 = the trace prompt
+
 case $TERM in 
 	xterm*|rxvt*) COLOR_PROMPT=yes;;
 esac
@@ -10,16 +16,22 @@ if [[ $COLOR_PROMPT ]]; then
 		Darwin)
 			;;
 		Linux)
-			USER_COLOR="\[${BYellow}\]"
-			HOST_COLOR="\[${BBlue}\]"
+			USER_COLOR="\[${Cyan}\]"
+			HOST_COLOR="\[${Blue}\]"
 			PWD_COLOR="\[${White}\]"
-			CONT_COLOR="\[${BGreen}\]"
+			CONT_COLOR="\[${Green}\]"
+			CHOICE_COLOR="\[${Yellow}\]"
+			TRACE_COLOR="\[${Red}\]"
 			;;
 	esac
 	RST="\[${Color_Off}\]"
-	PS1="${USER_COLOR}\u${RST}@${HOST_COLOR}\h${RST}:${PWD_COLOR}\w${RST}\$ "
-	PS2="${CONT_COLOR}Continue${RST}--> " 
+	PS1="${USER_COLOR}\u${RST}@${HOST_COLOR}\h${RST}:${PWD_COLOR}\w${RST}\076 "
+	PS2="${CONT_COLOR}Continue${RST}\302\273 " 
+	PS3="${CHOICE_COLOR}choice?{RST} "
+	PS4="${TRACE_COLOR}$0${RST}:${TRACE_COLOR}$LINENO${RST}+ "
 else
 	PS1='\u@\h:\w$ '
-	PS2='\w$ '
+	PS2='--> '
+	PS3='choice? '
+	PS4='$0.$LINENO+ '
 fi

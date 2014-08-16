@@ -25,6 +25,7 @@ alias lm='ls -al | more'
 case "$OSUNAME" in 
 	Darwin) 
 		alias hide='chflags hidden '
+		alias unhide='chflags nohidden '
 		;;
 	Linux)
 		alias kvm='sudo shutdown -h now'

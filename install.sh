@@ -1,8 +1,9 @@
 #!/bin/bash
+BACKUP_DIR=~/.holdfiles
 if [[ -f ~/.bash_profile || -f ~/.bashrc ]]; then
-	mkdir $PWD/.holdfiles
-	cp ~/.bash* $PWD/.holdfiles
-	cp ~/.inputrc $PWD/.holdfiles
+	mkdir $BACKUP_DIR
+	mv ~/.bash* $BACKUP_DIR
+	mv ~/.inputrc $BACKUP_DIR
 else
-	echo Failed.
+	echo No bash files found.
 fi
