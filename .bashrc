@@ -1,14 +1,12 @@
 #!/bin/bash
-if [[ ! -d "$HOME/.dotfiles" ]]; then
+export DOTFILES=$HOME/.dotfiles
+
+if [[ ! -d $DOTFILES ]]; then
 	echo Dotfiles directory missing ... please reinstall.
 	exit 1
 fi
 
-export OSUNAME=`uname`
-
-export DOTFILES=$HOME/.dotfiles
-export INPUTRC=$DOTFILES/readline
-
+source $DOTFILES/setup
 source $DOTFILES/paths
 source $DOTFILES/history
 source $DOTFILES/aliases
