@@ -1,9 +1,9 @@
 #!/bin/bash
 # bin dirs
 if [[ -d $DOTFILES/bin ]]; then
-	export PATH=$DOTFILES/bin:$PATH
+	PATH=$DOTFILES/bin:$PATH
 fi
 
 if [[ -d ~/bin ]]; then
-	export PATH=~/bin:$PATH
+	PATH=~/bin:$PATH
 fi

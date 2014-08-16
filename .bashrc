@@ -1,5 +1,5 @@
 #!/bin/bash
-export DOTFILES=$HOME/.dotfiles
+DOTFILES=$HOME/.dotfiles
 
 if [[ ! -d $DOTFILES ]]; then
 	echo Dotfiles directory missing ... please reinstall.
@@ -12,3 +12,5 @@ source $DOTFILES/history
 source $DOTFILES/prompt
 source $DOTFILES/functions
 source $DOTFILES/aliases
+
+unset DOTFILES
