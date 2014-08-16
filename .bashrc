@@ -9,6 +9,6 @@ fi
 source $DOTFILES/setup
 source $DOTFILES/paths
 source $DOTFILES/history
-source $DOTFILES/aliases
 source $DOTFILES/prompt
 source $DOTFILES/functions
+source $DOTFILES/aliases
