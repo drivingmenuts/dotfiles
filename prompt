@@ -10,7 +10,7 @@ if [[ $COLOR_PROMPT ]]; then
 		Darwin)
 			;;
 		Linux)
-			USER_COLOR="\[${BCyan}\]"
+			USER_COLOR="\[${BYellow}\]"
 			HOST_COLOR="\[${BBlue}\]"
 			PWD_COLOR="\[${White}\]"
 			CONT_COLOR="\[${BGreen}\]"
