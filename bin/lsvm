@@ -1,6 +1,0 @@
-#!/bin/bash
-if [[ -x /usr/bin/vboxmanage ]]; then
-	vboxmanage list vms | cut -f 1 -d\ | tr -d '"'
-else
-	echo vboxmanage not installed.
-fi

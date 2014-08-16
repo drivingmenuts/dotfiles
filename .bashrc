@@ -13,6 +13,11 @@ source $DOTFILES/prompt
 source $DOTFILES/functions
 source $DOTFILES/aliases
 
+# per-program mods
+for MOD in `ls $DOTFILES/mods/`; do
+	source $DOTFILES/mods/$MOD
+done
+
 HOSTFILE=".`hostname`"
 if [[ -f $HOSTFILE ]]; then
 	source $HOSTFILE
