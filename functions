@@ -30,7 +30,7 @@ ifips () {
 		        echo -e $IFACE '\t' `/usr/bin/ifdata -pa $IFACE`
 		done
 	else
-		echo moreutils (ifdata) not installed
+		echo 'moreutils (ifdata) not installed'
 	fi
 }
 
