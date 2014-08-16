@@ -4,9 +4,10 @@ if [[ ! -d "$HOME/.dotfiles" ]]; then
 	exit 1
 fi
 
-export DOTFILES=$HOME/.dotfiles
-export INPUTRC=$HOME/.dotfiles/readline
 export OSUNAME=`uname`
+
+export DOTFILES=$HOME/.dotfiles
+export INPUTRC=$DOTFILES/readline
 
 source $DOTFILES/paths
 source $DOTFILES/history
