@@ -14,6 +14,12 @@ if [[ $COLOR_PROMPT ]]; then
 	source $DOTFILES/colors
 	case $OSUNAME in 
 		Darwin)
+			USER_COLOR="\[${White}\]"
+			HOST_COLOR="\[${Green}\]"
+			PWD_COLOR="\[${Yellow}\]"
+			CONT_COLOR="\[${Green}\]"
+			CHOICE_COLOR="\[${Cyan}\]"
+			TRACE_COLOR="\[${Red}\]"
 			;;
 		Linux)
 			USER_COLOR="\[${Cyan}\]"
