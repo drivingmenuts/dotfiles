@@ -1,0 +1,18 @@
+#!/bin/bash
+if [[ -x /usr/bin/vboxmanage ]]; then
+	if [[ -z $1 ]]; then
+		VM_LIST=`lsvm`
+		select VM in "$VM_LIST exit";
+		do
+			if [[ "$VM" == 'exit']]; then
+				exit
+			else
+				svm $VM 
+			fi
+		done
+	else
+		vboxmanage startvm $1 --type headless
+	fi
+else
+	echo vboxmanage not installed.
+fi
