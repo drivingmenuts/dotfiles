@@ -40,6 +40,7 @@ alias rm='rm -v '
 
 # miscellaneous
 alias clr='clear '
+alias env='env | sort '
 alias dt='date +%m/%d/%Y\ %H:%M%P'
 alias rsync='rsync -vh --exclude-from=$HOME/.rsync_exclude --include=".**" '
 alias x='exit '

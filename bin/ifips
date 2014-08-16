@@ -1,0 +1,13 @@
+#!/bin/bash
+IFDATA_SOFT=`which ifdata`
+if [[ -n $IFDATA_SOFT ]]; then
+	case $OSUNAME in 
+		Darwin) IFACES=`networksetup -listallhardwareports | grep Device: | awk '{print $2}'`;;
+		Linux)	IFACES=`ls -1 /sys/class/net`;;
+	esac
+	for IFACE in $IFACES ; do
+	        echo -e $IFACE '\t' `/usr/bin/ifdata -pa $IFACE`
+	done
+else
+	echo 'moreutils (ifdata) not installed'
+fi

@@ -1,0 +1,13 @@
+#!/bin/bash
+NMAP_SOFT=`which nmap`
+if [[ -n $NMAP_SOFT ]]; then
+    if [ -z $1 ]; then
+        IPRANGE="192.168.1.0/24"
+    else
+        IPRANGE="$1"
+    fi
+    echo "Scanning $IPRANGE ..."
+    $NMAP_SOFT -sP $IPRANGE
+else
+	echo nmap not installed.
+fi
