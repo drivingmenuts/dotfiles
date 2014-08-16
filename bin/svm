@@ -4,7 +4,7 @@ if [[ -x /usr/bin/vboxmanage ]]; then
 		VM_LIST=`lsvm`
 		select VM in "$VM_LIST exit";
 		do
-			if [[ "$VM" == 'exit']]; then
+			if [[ "$VM" -eq 'exit']]; then
 				exit
 			else
 				_svm $VM 
