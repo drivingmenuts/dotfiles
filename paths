@@ -1,7 +1,7 @@
 #!/bin/bash
 # bin dirs
-if [[ -d ~/$DOTFILES/bin ]]; then
-	export PATH=~/$DOTFILES/bin:$PATH
+if [[ -d $DOTFILES/bin ]]; then
+	export PATH=$DOTFILES/bin:$PATH
 fi
 
 if [[ -d ~/bin ]]; then
