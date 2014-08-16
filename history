@@ -1,0 +1,8 @@
+#!/bin/bash
+# history control
+shopt -s histappend
+HISTFILE=$DOTFILES/.bash_history
+HISTCONTROL=ignorespace:ignoredups
+HISTIGNORE=?:??:clear:exit:history:pwd
+HISTSIZE=1000
+HISTFILESIZE=1000

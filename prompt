@@ -1,0 +1,20 @@
+#!/bin/bash
+# prompt control
+case $TERM in 
+	xterm*|rxvt*) COLOR_PROMPT=yes;;
+esac
+
+if [[ $COLOR_PROMPT ]]; then
+	source $DOTFILES/colors
+	case $OSUNAME in 
+		Darwin)
+			;;
+		Linux)
+			;;
+	esac
+	PS1='\u@\h \w$ '
+	PS2='\w$ '
+else
+	PS1='\u@\h \w$ '
+	PS2='\w$ '
+fi

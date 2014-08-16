@@ -1,0 +1,45 @@
+#!/bin/bash
+# cd'ing
+alias ~='cd ~'
+alias ..='cd .. '
+alias ...='cd ../.. '
+alias ....='cd ../../.. '
+alias pd='pushd '
+alias xx='popd '
+
+# succinct lsing
+case "$OSUNAME" in 
+	Darwin) 
+		alias ls='ls -GF '
+		;;
+	Linux)	
+		alias ls='ls --color -F '
+		;;
+esac
+
+alias la='ls -al'
+alias ll='ls -hl'
+alias lm='ls -al | more'
+
+# system specific stuff
+case "$OSUNAME" in 
+	Darwin) 
+		alias hide='chflags hidden '
+		;;
+	Linux)
+		alias kvm='sudo shutdown -h now'
+		;;
+esac
+
+# directory and path handling
+alias md='mkdir -pv '
+alias mkcd='make_and_change_directory '
+alias mkpd='make_and_push_directory '
+alias path='echo -e ${PATH//:/\\n}'
+alias rm='rm -v '
+
+# miscellaneous
+alias clr='clear '
+alias dt='date +%m/%d/%Y\ %H:%M%P'
+alias rsync='rsync -vh --exclude-from=$HOME/.rsync_exclude --include=".**" '
+alias x='exit '

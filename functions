@@ -1,0 +1,77 @@
+#!/bin/bash
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)  tar xjf $1      ;;
+            *.tar.gz)   tar xzf $1      ;;
+            *.bz2)      bunzip2 $1      ;;
+            *.rar)      rar x $1        ;;
+            *.gz)       gunzip $1       ;;
+            *.tar)      tar xf $1       ;;
+            *.tbz2)     tar xjf $1      ;;
+            *.tgz)      tar xzf $1      ;;
+            *.zip)      unzip $1        ;;
+            *.Z)        uncompress $1   ;;
+            *)          echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+ifips () {
+	IFDATA_SOFT=`which ifdata`
+	if [[ -n $IFDATA_SOFT ]]; then
+		case $OSUNAME in 
+			Darwin) IFACES=`networksetup -listallhardwareports | grep Device: | awk '{print $2}'`;;
+			Linux)	IFACES=`ls -1 /sys/class/net`;;
+		esac
+		for IFACE in $IFACES ; do
+		        echo -e $IFACE '\t' `/usr/bin/ifdata -pa $IFACE`
+		done
+	else
+		echo moreutils (ifdata) not installed
+	fi
+}
+
+netips () {
+	NMAP_SOFT=`which nmap`
+	if [[ -n $NMAP_SOFT ]]; then
+	    if [ -z $1 ]; then
+	        IPRANGE="192.168.1.0/24"
+	    else
+	        IPRANGE="$1"
+	    fi
+	    echo "Scanning $IPRANGE ..."
+	    $NMAP_SOFT -sP $IPRANGE
+	else
+		echo nmap not installed.
+	fi
+}
+
+_make_directory () {
+        if [[ ! -d "$1" ]]; then
+                mkdir -pv "$1"
+        else
+                echo "$1" already exists ...
+        fi
+}
+
+make_and_change_directory () {
+	_make_directory $1
+	cd $1
+}
+
+make_and_push_directory () {
+	_make_directory $1
+	pushd $1
+}
+
+
+psg () {
+        ps x | grep -v grep | grep -i ${1:-bash} --color
+}
+
+serve() {
+    python -m SimpleHTTPServer ${1:-8080}
+}
