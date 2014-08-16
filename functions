@@ -67,6 +67,9 @@ make_and_push_directory () {
 	pushd $1
 }
 
+pophist() {
+	cat $HISTFILE | awk '{print $2}' | sort -n | uniq -c | sort -n | tail
+}
 
 psg () {
         ps x | grep -v grep | grep -i ${1:-bash} --color
