@@ -1,6 +1,6 @@
 #!/bin/bash
-BACKUP_DIR=~/.holdfiles
 SOURCE_DIR=$( cd "$( dirname "$0" )" && pwd )
+BACKUP_DIR="$SOURCE_DIR/save"
 HOSTFILE=".`hostname`"
 
 if [[ -f ~/.bash_profile || -f ~/.bashrc ]]; then
