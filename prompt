@@ -10,11 +10,16 @@ if [[ $COLOR_PROMPT ]]; then
 		Darwin)
 			;;
 		Linux)
+			USER_COLOR="\[${BCyan}\]"
+			HOST_COLOR="\[${BBlue}\]"
+			PWD_COLOR="\[${White}\]"
+			CONT_COLOR="\[${BGreen}\]"
 			;;
 	esac
-	PS1='\u@\h \w$ '
-	PS2='\w$ '
+	RST="\[${Color_Off}\]"
+	PS1="${USER_COLOR}\u${RST}@${HOST_COLOR}\h${RST}:${PWD_COLOR}\w${RST}\$ "
+	PS2="${CONT_COLOR}Continue${RST}--> " 
 else
-	PS1='\u@\h \w$ '
+	PS1='\u@\h:\w$ '
 	PS2='\w$ '
 fi
