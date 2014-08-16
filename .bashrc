@@ -8,6 +8,8 @@ export DOTFILES=$HOME/.dotfiles
 export INPUTRC=$HOME/.dotfiles/readline
 export OSUNAME=`uname`
 
+source $DOTFILES/paths
 source $DOTFILES/history
 source $DOTFILES/aliases
 source $DOTFILES/prompt
+source $DOTFILES/functions
