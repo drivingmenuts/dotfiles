@@ -5,6 +5,7 @@ if [[ ! -d "$HOME/.dotfiles" ]]; then
 fi
 
 export DOTFILES=$HOME/.dotfiles
+export INPUTRC=$HOME/.dotfile/readline
 export OSUNAME=`uname`
 
 source $DOTFILES/history
