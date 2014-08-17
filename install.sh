@@ -7,11 +7,18 @@ if [[ -f ~/.bash_profile || -f ~/.bashrc ]]; then
 	mkdir $BACKUP_DIR
 	mv ~/.bash* $BACKUP_DIR
 	mv ~/.inputrc $BACKUP_DIR
-	cp $SOURCE_DIR/.bash* ~
+
+	BASH_FILES=`ls $SOURCE_DIR/.bash*`
+	for BASH_FILE in $BASH_FILES; do
+		SYMLINK=`basename $BASH_FILE`
+		ln -s $BASH_FILE ~/$SYMLINK
+	done
+
+	cp $SOURCE_DIR/.rsyncignore_global ~
 	if [[ ! -f $HOSTFILE ]]; then
 		touch $HOSTFILE
 	else
-		echo "Per-host customization file '$HOSTFILE' already exists."
+		echo -e "Warning: Per-host customization file '$HOSTFILE' already exists."
 	fi
 else
 	echo No bash files found.

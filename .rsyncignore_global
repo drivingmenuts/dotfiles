@@ -1,0 +1,16 @@
+.DS_Store
+.CFUserTextEncoding
+.gitignore
+.Trash/
+.sass-cache/
+.svn/
+rsc/
+rsrc/
+Templates/
+*-backups/
+*cache/
+node_modules/
+bower_components/
+.tmp/
+.idea/
+__pycache__/
