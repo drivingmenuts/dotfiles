@@ -11,10 +11,13 @@ if [[ -f ~/.bash_profile || -f ~/.bashrc ]]; then
 	BASH_FILES=`ls $SOURCE_DIR/.bash*`
 	for BASH_FILE in $BASH_FILES; do
 		SYMLINK=`basename $BASH_FILE`
-		ln -s $BASH_FILE ~/$SYMLINK
+		cp $BASH_FILE ~/$SYMLINK
 	done
 
-	cp $SOURCE_DIR/.rsyncignore_global ~
+	if [[ ! -f ~/.rsyncignore_global ]]; then
+		cp $SOURCE_DIR/.rsyncignore_global ~
+	fi
+
 	if [[ ! -f $HOSTFILE ]]; then
 		touch $HOSTFILE
 	else
