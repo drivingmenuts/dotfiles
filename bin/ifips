@@ -6,7 +6,7 @@ if [[ -n $IFDATA_SOFT ]]; then
 		Linux)	IFACES=`ls -1 /sys/class/net`;;
 	esac
 	for IFACE in $IFACES ; do
-		echo -e $IFACE '\t\t' `$IFDATA_SOFT -pa $IFACE`
+		printf "%-16s %s\n" "$IFACE" "`$IFDATA_SOFT -pa $IFACE`"
 	done
 else
 	echo 'moreutils (ifdata) not installed'
