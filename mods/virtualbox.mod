@@ -9,6 +9,6 @@ if [[ -x /usr/bin/vboxmanage ]]; then
 	}
 
 	_svm() {
-	        vboxmanage startvm $1 --type headless
+	    vboxmanage startvm "$1" --type headless
 	}
 fi
