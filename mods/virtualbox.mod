@@ -9,6 +9,11 @@ if [[ -x /usr/bin/vboxmanage ]]; then
 	}
 
 	_svm() {
-	    vboxmanage startvm "$1" --type headless
+		if [[ -n $1 ]]; then
+		    vboxmanage startvm "$1" --type headless
+		else
+			echo "Name of VM not given"
+			_lsvm
+		fi
 	}
 fi
