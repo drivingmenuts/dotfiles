@@ -13,4 +13,3 @@ set mark-symlinked-directories on
 # kill the entire line, instead of the positional kills
 "\C-k": kill-whole-line
 "\C-w":	kill-word
-"\C-DEL": backward-kill-word
