@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # prompt control
 # info: http://www.thegeekstuff.com/2008/09/bash-shell-take-control-of-ps1-ps2-ps3-ps4-and-prompt_command/
 # PS1 = the standard prompt
@@ -6,13 +7,13 @@
 # PS3 = the select prompt (select x in set)
 # PS4 = the trace prompt
 
-case $TERM in 
+case $TERM in
 	xterm*|rxvt*) COLOR_PROMPT=yes;;
 esac
 
 if [[ $COLOR_PROMPT ]]; then
 	source $DOTFILES/colors
-	case $OSUNAME in 
+	case $OSUNAME in
 		Darwin)
 			USER_COLOR="\[${White}\]"
 			HOST_COLOR="\[${Green}\]"
@@ -32,7 +33,7 @@ if [[ $COLOR_PROMPT ]]; then
 	esac
 	RST="\[${Color_Off}\]"
 	PS1="${USER_COLOR}\u${RST}@${HOST_COLOR}\h${RST}:${PWD_COLOR}\w${RST}\076 "
-	PS2="${CONT_COLOR}Continue${RST}\302\273 " 
+	PS2="${CONT_COLOR}Continue${RST}\302\273 "
 	PS3="${CHOICE_COLOR}choice?{RST} "
 	PS4="${TRACE_COLOR}$0${RST}:${TRACE_COLOR}$LINENO${RST}+ "
 else

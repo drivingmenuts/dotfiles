@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 if [[ -n `which ifdata` ]]; then
 
 	alias ifips='_ifips '

@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 if [[ -x /usr/bin/vboxmanage ]]; then
 
 	alias lsvm='_lsvm'

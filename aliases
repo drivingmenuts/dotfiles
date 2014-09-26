@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # cd'ing
 alias ~='cd ~'
 alias ..='cd .. '
@@ -8,11 +9,11 @@ alias pd='pushd '
 alias xx='popd '
 
 # succinct lsing
-case "$OSUNAME" in 
-	Darwin) 
+case "$OSUNAME" in
+	Darwin)
 		alias ls='ls -GF '
 		;;
-	Linux)	
+	Linux)
 		alias ls='ls --color -F '
 		;;
 esac
@@ -22,8 +23,8 @@ alias ll='ls -hl'
 alias lm='ls -al | more'
 
 # system specific stuff
-case "$OSUNAME" in 
-	Darwin) 
+case "$OSUNAME" in
+	Darwin)
 		alias hide='chflags hidden '
 		alias unhide='chflags nohidden '
 		;;

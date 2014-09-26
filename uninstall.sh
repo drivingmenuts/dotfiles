@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 SOURCE_DIR=$( cd "$( dirname "$0" )" && pwd )
 BACKUP_DIR="$SOURCE_DIR/save"
 cp $BACKUP_DIR/.bash* ~

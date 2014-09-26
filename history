@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # history control
 shopt -s histappend
 # HISTFILE=$DOTFILES/.bash_history
