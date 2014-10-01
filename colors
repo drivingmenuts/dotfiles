@@ -2,7 +2,7 @@
 
 # Source: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # Reset
-Color_Off='\e[0m'       # Text Reset
+Reset='\e[0m'       # Text Reset
 
 # Regular Colors
 Black='\e[0;30m'        # Black

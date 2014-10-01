@@ -13,29 +13,28 @@ esac
 
 if [[ $COLOR_PROMPT ]]; then
 	source $DOTFILES/colors
+	COLOR_RESET="\[${Reset}\]"
 	case $OSUNAME in
 		Darwin)
-			USER_COLOR="\[${White}\]"
-			HOST_COLOR="\[${Green}\]"
+			USER_COLOR="\[${BWhite}\]"
+			HOST_COLOR="\[${BGreen}\]"
 			PWD_COLOR="\[${Yellow}\]"
 			CONT_COLOR="\[${Green}\]"
-			CHOICE_COLOR="\[${Cyan}\]"
 			TRACE_COLOR="\[${Red}\]"
 			;;
 		Linux)
-			USER_COLOR="\[${Cyan}\]"
-			HOST_COLOR="\[${Blue}\]"
-			PWD_COLOR="\[${White}\]"
+			USER_COLOR="\[${BCyan}\]"
+			HOST_COLOR="\[${BGreen}\]"
+			PWD_COLOR="\[${Yellow}\]"
 			CONT_COLOR="\[${Green}\]"
-			CHOICE_COLOR="\[${Yellow}\]"
 			TRACE_COLOR="\[${Red}\]"
 			;;
 	esac
-	RST="\[${Color_Off}\]"
-	PS1="${USER_COLOR}\u${RST}@${HOST_COLOR}\h${RST}:${PWD_COLOR}\w${RST}\076 "
-	PS2="${CONT_COLOR}Continue${RST}\302\273 "
-	PS3="${CHOICE_COLOR}choice?{RST} "
-	PS4="${TRACE_COLOR}$0${RST}:${TRACE_COLOR}$LINENO${RST}+ "
+	RST="${Color_Off}"
+	PS1="${USER_COLOR}\u${COLOR_RESET}@${HOST_COLOR}\h${COLOR_RESET}:${PWD_COLOR}\w${COLOR_RESET}\076 "
+	PS2="${CONT_COLOR}Continue${COLOR_RESET}\302\273 "
+    PS3="Choice? "
+	PS4="${TRACE_COLOR}$0${RST}:${TRACE_COLOR}$LINENO${COLOR_RESET}+ "
 else
 	PS1='\u@\h:\w$ '
 	PS2='--> '
