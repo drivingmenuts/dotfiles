@@ -22,3 +22,8 @@ HOSTFILE=".`hostname`"
 if [[ -f $HOSTFILE ]]; then
 	source $HOSTFILE
 fi
+
+# the user's bin should override all other bins
+if [[ -d ~/bin ]]; then
+	PATH=~/bin:$PATH
+fi
