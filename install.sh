@@ -13,7 +13,10 @@ else
 	echo No bash files found ...
 fi
 
-echo Creating new bash files ...
+echo Setting up new bashrc file
+cat "${SOURCE_DIR}/bashrc_install" | sed s#@SOURCE_DIR@#${SOURCE_DIR}# > "${SOURCE_DIR}/.bashrc"
+
+echo Installing new bash files ...
 
 BASH_FILES=`ls $SOURCE_DIR/.bash*`
 for BASH_FILE in $BASH_FILES; do

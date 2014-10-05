@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 # bin dirs
-if [[ -d $DOTFILES/bin ]]; then
-	PATH=$DOTFILES/bin:$PATH
+if [[ -d /usr/local/Cellar ]]; then
+	PATH=/usr/local/bin:$PATH
 fi
