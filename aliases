@@ -5,8 +5,8 @@ alias ~='cd ~'
 alias ..='cd .. '
 alias ...='cd ../.. '
 alias ....='cd ../../.. '
-alias pd='pushd '
-alias xx='popd '
+alias pd='pushd'
+alias xx='popd'
 
 # succinct lsing
 case "$OSUNAME" in
