@@ -3,7 +3,11 @@ dotfiles
 
 my dotfiles / adventures in Bash
 
-At the moment, it's more geared toward OS X than anything. Slowly, I will be getting it to be generic, or at least be able to handle other systems.
+Tested on OSX, Ubuntu
+
+Todo:
+* clean up install script, feels kludgy
+* work on mods, also feel kludgy
 
 to install:
 ```
