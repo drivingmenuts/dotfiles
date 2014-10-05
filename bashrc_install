@@ -1,0 +1,29 @@
+#!/bin/bash
+export DOTFILES=$HOME/@SOURCE_DIR@
+
+if [[ ! -d $DOTFILES ]]; then
+	echo Dotfiles directory missing ... please reinstall.
+	exit 1
+fi
+
+source $DOTFILES/setup
+source $DOTFILES/paths
+source $DOTFILES/history
+source $DOTFILES/prompt
+source $DOTFILES/functions
+source $DOTFILES/aliases
+
+# per-program mods
+for MOD in `ls $DOTFILES/mods/`; do
+	source $DOTFILES/mods/$MOD
+done
+
+HOSTFILE=".`hostname`"
+if [[ -f $HOSTFILE ]]; then
+	source $HOSTFILE
+fi
+
+# the user's bin should override all other bins
+if [[ -d ~/bin ]]; then
+	PATH=~/bin:$PATH
+fi
