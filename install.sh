@@ -1,24 +1,33 @@
 #!/usr/bin/env bash
 
-SOURCE_DIR=$( cd "$( dirname "$0" )" && pwd )
-BACKUP_DIR="$SOURCE_DIR/save"
-HOSTFILE=".`hostname`"
+INST_DIR="$( cd "$( dirname "$0" )" && pwd )"
+BACK_DIR="$INST_DIR/save"
+HOSTFILE="$( hostname )"
+
+mkdir $BACK_DIR
 
 if [[ -f ~/.bash_profile || -f ~/.bashrc ]]; then
 
-	mkdir $BACKUP_DIR
-	mv ~/.bash* $BACKUP_DIR
+	mv ~/.bash* $BACK_DIR
+
+else
+	echo No bash files found ...
+fi
+
+if [[ -f ~/.profile ]]; then
+
+	mv ~/.profile $BACK_DIR
 
 else
 	echo No bash files found ...
 fi
 
 echo Setting up new bashrc file
-cat "${SOURCE_DIR}/bashrc_install" | sed s#@SOURCE_DIR@#${SOURCE_DIR}# > "${SOURCE_DIR}/.bashrc"
+cat "${INST_DIR}/bashrc_install" | sed s#@INST_DIR@#${INST_DIR}# > "${INST_DIR}/.bashrc"
 
 echo Installing new bash files ...
 
-BASH_FILES=`ls $SOURCE_DIR/.bash*`
+BASH_FILES=`ls $INST_DIR/.bash*`
 for BASH_FILE in $BASH_FILES; do
 	DEST_FILE=`basename $BASH_FILE`
 	echo "$DEST_FILE ..."
@@ -27,17 +36,17 @@ done
 
 if [[ -f ~/.inputrc ]]; then
 	echo Saving inputrc ...
-	mv ~/.inputrc $BACKUP_DIR
+	mv ~/.inputrc $BACK_DIR
 fi
 
 if [[ -f ~/.vimrc ]]; then
 	echo Saving vimrc ...
-	mv ~/.vimrc $BACKUP_DIR
+	mv ~/.vimrc $BACK_DIR
 fi
 
 if [[ ! -f ~/.rsyncignore_global ]]; then
 	echo Creating global rsync ignore file ...
-	cp $SOURCE_DIR/.rsyncignore_global ~
+	cp $INST_DIR/.rsyncignore_global ~
 else
 	echo Existing global rsync ignore file. Skipping ...
 fi
@@ -45,7 +54,7 @@ fi
 
 if [[ ! -f ~/.vimrc ]]; then
 	echo Creating vimrc file ...
-	cp $SOURCE_DIR/.vimrc ~
+	cp $INST_DIR/.vimrc ~
 else
 	echo Existing vimrc. Skipping ...
 fi
