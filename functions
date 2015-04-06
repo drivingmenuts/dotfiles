@@ -50,7 +50,7 @@ serve() {
     python -m SimpleHTTPServer ${1:-8080}
 }
 
-function title {
+title() {
     echo -ne "\033]0;"$*"\007"
 }
 
