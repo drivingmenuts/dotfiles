@@ -1,5 +1,5 @@
 #!/bin/bash
-export DOTFILES=/Users/albertfreeman/.bashfiles
+export DOTFILES=@INST_DIR@
 
 if [[ ! -d $DOTFILES ]]; then
 	echo Dotfiles directory missing ... please reinstall.

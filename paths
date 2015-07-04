@@ -2,5 +2,5 @@
 
 # bin dirs
 if [[ -d /usr/local/Cellar ]]; then
-	PATH=/usr/local/bin:$PATH
+	PATH=/usr/local/bin:/usr/local/sbin:$PATH
 fi
