@@ -10,3 +10,6 @@ export OSUNAME=`uname`
 
 # personalize some things for readline
 export INPUTRC=$DOTFILES/readline
+
+# set the editor
+export VISUAL=vi
