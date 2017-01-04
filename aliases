@@ -27,6 +27,7 @@ case "$OSUNAME" in
 	Darwin)
 		alias hide='chflags hidden '
 		alias unhide='chflags nohidden '
+        alias resetLaunchpad='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 		;;
 	Linux)
 		alias kvm='sudo shutdown -h now'

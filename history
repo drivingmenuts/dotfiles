@@ -2,6 +2,7 @@
 
 # history control
 shopt -s histappend
+shopt -s histverify
 # HISTFILE=$DOTFILES/.bash_history
 HISTCONTROL=ignorespace:ignoredups
 HISTIGNORE=?:??:clear:exit:history:pwd
