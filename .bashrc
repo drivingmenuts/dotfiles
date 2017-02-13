@@ -13,6 +13,10 @@ source $DOTFILES/prompt
 source $DOTFILES/functions
 source $DOTFILES/aliases
 
+if [[ -f $HOME/.aliases ]]; then
+	source $HOME/.aliases
+fi
+
 # per-program mods
 for MOD in `ls $DOTFILES/mods/`; do
 	source $DOTFILES/mods/$MOD
